@@ -13,16 +13,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ConceptByAI.md",
+                "file": "Concept.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ConceptByAI"
+              "title": "Concept"
             }
           },
           {
-            "id": "8342e8fe852eff33",
+            "id": "04bea4154e337045",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -34,23 +34,9 @@
               "icon": "lucide-file",
               "title": "GameMechanics"
             }
-          },
-          {
-            "id": "9b8b2d16323c1e7b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ConceptByAI.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ConceptByAI"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -122,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ConceptByAI.md",
+                "file": "GameMechanics.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for ConceptByAI"
+              "title": "Backlinks for GameMechanics"
             }
           },
           {
@@ -141,12 +127,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ConceptByAI.md",
+                "file": "GameMechanics.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from ConceptByAI"
+              "title": "Outgoing links from GameMechanics"
             }
           },
           {
@@ -168,10 +154,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ConceptByAI.md"
+                "file": "GameMechanics.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of ConceptByAI"
+              "title": "Outline of GameMechanics"
             }
           }
         ]
@@ -191,12 +177,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9b8b2d16323c1e7b",
+  "active": "04bea4154e337045",
   "lastOpenFiles": [
-    "Gameplay.canvas",
-    "ConceptByAI.md",
     "Concept.md",
     "GameMechanics.md",
+    "Pasted image 20241218210737.png",
+    "ConceptByAI.md",
+    "GameJamInfo.md",
+    "Gameplay.canvas",
+    "Pasted image 20241218184843.png",
     "Untitled"
   ]
 }
