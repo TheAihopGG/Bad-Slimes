@@ -23,17 +23,11 @@ var move_direction: Vector2 = Vector2.ZERO
 signal hp_reduced(new_hp: int, hp_count: int)
 
 
-func _physics_process(_delta: float) -> void:
-	# move entity
-	if velocity.length() < max_speed:
-		velocity += move_direction.normalized() * speed_acceleration
-	else:
-		velocity = move_direction.normalized() * max_speed
-	move_and_slide()
-
-
 func _reduce_hp(hp_count: int) -> int:
 	"""Reduces hp and return new hp value"""
-	hp = abs(hp - hp_count)
+	hp -= hp_count
+	if hp < 0:
+		hp = 0
+	
 	hp_reduced.emit(hp, hp_count)
 	return hp
