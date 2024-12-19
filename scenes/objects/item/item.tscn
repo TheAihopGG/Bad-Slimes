@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://hx5nn5jous5u"]
+
+[ext_resource type="Script" path="res://scenes/objects/item/item.gd" id="1_skytx"]
+
+[node name="Item" type="Area2D"]
+script = ExtResource("1_skytx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+anim_player = NodePath("../AnimationPlayer")

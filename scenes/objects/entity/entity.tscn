@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://u0twxm6e37ww"]
+
+[ext_resource type="Script" path="res://scenes/objects/entity/entity.gd" id="1_xtoyv"]
+
+[node name="Entity" type="CharacterBody2D"]
+script = ExtResource("1_xtoyv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Effects" type="Node" parent="."]
+
+[node name="Weapons" type="Node" parent="."]
