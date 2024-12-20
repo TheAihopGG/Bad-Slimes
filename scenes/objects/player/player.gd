@@ -4,10 +4,10 @@ class_name Player
 # export vars
 # export dodge roll parameters
 @export_subgroup("Dodge roll")
-@export var dodge_roll_max_speed:             int   = 80
-@export var dodge_roll_speed_acceleration:    int   = 20
-@export var dodge_roll_cool_down:             float = 2
-@export var dodge_roll_duration:              float = 0.5
+@export var dodge_roll_max_speed: int   = 80
+@export var dodge_roll_speed_acceleration: int   = 20
+@export var dodge_roll_cool_down: float = 2
+@export var dodge_roll_duration: float = 0.5
 
 # timers nodes
 @onready var dodge_rolling_timer: Timer = $Timers/DodgeRoll
@@ -22,12 +22,12 @@ enum states {
 var state
 
 # vars
-var movement_enabled:       bool = true
-var attacking_enabled:      bool = true
-var interaction_enabled:    bool = true
+var movement_enabled: bool = true
+var attacking_enabled: bool = true
+var interaction_enabled: bool = true
 var last_move_direction: Vector2 = Vector2.RIGHT
-var playback:            AnimationNodeStateMachinePlayback
-var can_dodge_roll:         bool = true
+var playback: AnimationNodeStateMachinePlayback
+var can_dodge_roll: bool = true
 
 func _ready() -> void:
 	playback = animation_tree["parameters/playback"]

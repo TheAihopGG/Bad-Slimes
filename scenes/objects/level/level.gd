@@ -1,7 +1,7 @@
 extends Node2D
 class_name Level
 
-@onready var player:    Player  = $Player
+@onready var player: Player  = $Player
 @onready var start_pos: Vector2 = $StartPos.position
 
 

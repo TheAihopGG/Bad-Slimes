@@ -4,8 +4,8 @@ class_name Entity
 # export vars
 # export speed parameters
 @export_subgroup("Speed")
-@export var max_speed:           int = 100
-@export var speed_acceleration:  int = 10
+@export var max_speed: int = 100
+@export var speed_acceleration: int = 10
 
 # export health parameters
 @export_subgroup("HP")
@@ -13,13 +13,13 @@ class_name Entity
 @export var hp:                  int = 100
 
 # nodes
-@onready var hitbox:           CollisionShape2D = $CollisionShape2D
+@onready var hitbox: CollisionShape2D = $CollisionShape2D
 @onready var animation_player: AnimationPlayer  = $AnimationPlayer
-@onready var animation_tree:   AnimationTree    = $AnimationTree
-@onready var sprite:           AnimatedSprite2D = $AnimatedSprite2D
-@onready var items:            Node             = $Items
-@onready var effects:          Node             = $Effects
-@onready var weapons:          Node             = $Weapons
+@onready var animation_tree: AnimationTree    = $AnimationTree
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var items: Node             = $Items
+@onready var effects: Node             = $Effects
+@onready var weapons: Node             = $Weapons
 
 # vars
 var move_direction: Vector2 = Vector2.ZERO
