@@ -15,6 +15,10 @@ run/main_scene="res://scenes/levels/test_level/test_level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalVars="*res://scenes/singletones/global_vars.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
