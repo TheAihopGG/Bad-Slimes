@@ -30,6 +30,7 @@ var playback: AnimationNodeStateMachinePlayback
 var can_dodge_roll: bool = true
 
 func _ready() -> void:
+	GlobalVars.player = self
 	playback = animation_tree["parameters/playback"]
 
 
@@ -50,7 +51,7 @@ func get_input() -> void:
 		# set state
 		state = get_current_state()
 	
-	if move_direction != Vector2.ZERO:
+	if move_direction:
 		last_move_direction = move_direction
 
 
@@ -58,7 +59,7 @@ func get_current_state() -> int:
 	if Input.is_action_just_pressed("dodge_roll") and can_dodge_roll:
 		return states.DODGE_ROLL
 	
-	elif move_direction != Vector2.ZERO:
+	elif move_direction:
 		return states.MOVE
 
 	else:
@@ -100,7 +101,7 @@ func enter_state() -> void:
 
 
 func update_animation_parameters() -> void:
-	if move_direction != Vector2.ZERO:
+	if move_direction:
 		animation_tree["parameters/idle/blend_position"] = move_direction
 		animation_tree["parameters/move/blend_position"] = move_direction
 
