@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://j55jd3gp2cvj"]
+
+[ext_resource type="Script" path="res://scenes/objects/PoleWithEffect/pole_with_effect.gd" id="1_jkx4i"]
+
+[node name="PoleWithEffect" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_jkx4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Duration" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Duration" to="." method="_on_duration_timeout"]

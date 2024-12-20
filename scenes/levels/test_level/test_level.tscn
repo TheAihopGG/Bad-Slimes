@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cag2gcx2y5piu"]
+[gd_scene load_steps=27 format=4 uid="uid://cag2gcx2y5piu"]
 
 [ext_resource type="PackedScene" uid="uid://ban7mdvu67bla" path="res://scenes/objects/level/level.tscn" id="1_t4xr4"]
 [ext_resource type="Texture2D" uid="uid://cuigapkn6mjjj" path="res://tilesets/ground/Dirt - simplified.png" id="2_e6jgb"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://comos6wrbya0k" path="res://tilesets/props/Water Plants.png" id="11_hh03r"]
 [ext_resource type="PackedScene" uid="uid://b1hswu6isgcbp" path="res://scenes/objects/note/note.tscn" id="12_ij56c"]
 [ext_resource type="PackedScene" uid="uid://daoapx6jtxwer" path="res://scenes/objects/enemy/test_enemy.tscn" id="13_l1dbo"]
+[ext_resource type="PackedScene" uid="uid://ci5cod8rbcea0" path="res://scenes/objects/TestPoleWithEffect/test_pole_with_effect.tscn" id="14_puwen"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_axfnt"]
 texture = ExtResource("2_e6jgb")
@@ -433,5 +434,8 @@ text = "asdasd adsa d ad sad asdasdsad asd asd asd ad sds s"
 
 [node name="TestEnemy" parent="Enemies" index="0" instance=ExtResource("13_l1dbo")]
 
-[node name="StartPos" parent="." index="5"]
+[node name="TestPoleWithEffect" parent="PolesEffects" index="0" instance=ExtResource("14_puwen")]
+position = Vector2(-115, 59)
+
+[node name="StartPos" parent="." index="6"]
 position = Vector2(-90, -1)
