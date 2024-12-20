@@ -22,6 +22,10 @@ size = Vector2(4, 5)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("2_bacid")
+max_speed = null
+speed_acceleration = null
+max_hp = null
+hp = null
 
 [node name="HPLabel" parent="." index="0"]
 offset_left = -10.0
@@ -37,4 +41,4 @@ sprite_frames = SubResource("SpriteFrames_yb32e")
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("RectangleShape2D_pdcjp")
 
-[connection signal="hp_reduced" from="." to="." method="_on_hp_reduced"]
+[connection signal="died" from="." to="." method="_on_died"]

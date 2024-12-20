@@ -1,8 +1,10 @@
-[gd_scene load_steps=60 format=3 uid="uid://due18p1s878gj"]
+[gd_scene load_steps=62 format=3 uid="uid://due18p1s878gj"]
 
 [ext_resource type="PackedScene" uid="uid://u0twxm6e37ww" path="res://scenes/objects/entity/entity.tscn" id="1_tmi20"]
 [ext_resource type="Script" path="res://scenes/objects/player/player.gd" id="2_auuq8"]
 [ext_resource type="Texture2D" uid="uid://k1aa0grs5nda" path="res://scenes/objects/player/NewImage-1.png" id="3_4fg1p"]
+[ext_resource type="PackedScene" uid="uid://202pswi301at" path="res://scenes/objects/sword/sword.tscn" id="4_er1bu"]
+[ext_resource type="PackedScene" uid="uid://d04eschcom6f2" path="res://scenes/objects/TestSword/test_sword.tscn" id="5_p3hkm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_unav6"]
 radius = 34.0
@@ -1044,14 +1046,12 @@ states/move/position = Vector2(476, 100)
 
 [node name="Player" groups=["player"] instance=ExtResource("1_tmi20")]
 script = ExtResource("2_auuq8")
-dodge_roll_max_speed = null
-dodge_roll_speed_acceleration = null
-dodge_roll_cool_down = null
-dodge_roll_duration = null
-max_speed = null
-speed_acceleration = null
-max_hp = null
-hp = null
+dodge_roll_max_speed = 80
+dodge_roll_speed_acceleration = 20
+dodge_roll_cool_down = 2.0
+dodge_roll_duration = 0.5
+can_stun = false
+weapons_limit = 2
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 zoom = Vector2(7, 7)
@@ -1089,15 +1089,18 @@ parameters/dodge_roll/blend_position = Vector2(0, 0)
 parameters/idle/blend_position = Vector2(0, 0.00236404)
 parameters/move/blend_position = Vector2(0, 0)
 
-[node name="Timers" type="Node" parent="." index="9"]
+[node name="Notes" type="Node" parent="." index="9"]
 
-[node name="DodgeRoll" type="Timer" parent="Timers" index="0"]
+[node name="Sword" parent="Weapons" index="0" instance=ExtResource("4_er1bu")]
+damage = 1
+
+[node name="TestSword" parent="Weapons" index="1" instance=ExtResource("5_p3hkm")]
+
+[node name="DodgeRoll" type="Timer" parent="Timers" index="1"]
 wait_time = 0.1
 one_shot = true
 
-[node name="DodgeRollCoolDown" type="Timer" parent="Timers" index="1"]
-
-[node name="Notes" type="Node" parent="." index="10"]
+[node name="DodgeRollCoolDown" type="Timer" parent="Timers" index="2"]
 
 [connection signal="body_entered" from="PickItemsArea" to="." method="_on_pick_items_area_body_entered"]
 [connection signal="body_exited" from="PickItemsArea" to="." method="_on_pick_items_area_body_exited"]

@@ -37,4 +37,4 @@ sprite_frames = SubResource("SpriteFrames_yb32e")
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("RectangleShape2D_pdcjp")
 
-[connection signal="hp_reduced" from="." to="." method="_on_hp_reduced"]
+[connection signal="died" from="." to="." method="_on_died"]

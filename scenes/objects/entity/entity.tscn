@@ -31,3 +31,10 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="Effects" type="Node" parent="."]
 
 [node name="Weapons" type="Node" parent="."]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="StunTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[connection signal="timeout" from="Timers/StunTimer" to="." method="_on_stun_timer_timeout"]

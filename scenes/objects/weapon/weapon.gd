@@ -5,7 +5,6 @@ class_name Weapon
 # export attack
 @export_subgroup("Attack")
 @export var damage: int = 10
-@export var stan_chance: float = 100
 @export var cooldown: float = 1
 # export offset
 @export_subgroup("Offset")
@@ -37,7 +36,7 @@ func _attack(_entity: Entity) -> void:
 
 
 func _pick_up() -> void:
-	if not is_picked_up:
+	if not is_picked_up and GlobalVars.player.weapons.get_child_count() <= GlobalVars.player.weapons_limit:
 		GlobalVars.player.weapons.add_child(self)
 		GlobalVars.player.weapon = self
 		is_picked_up = true

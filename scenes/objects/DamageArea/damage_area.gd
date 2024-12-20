@@ -10,16 +10,17 @@ class_name DamageArea
 @onready var parent_entity = get_parent()
 
 # vars
-var damaged: bool = false
-var damage: int = 10
-var stan_chance: float = 100
+var weapon: Weapon
+
+# signals
+signal damaged(entity: Entity)
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("entity") and not body.is_in_group("player"):
-		print("Damaged")
+	if body.is_in_group("entity"):
 		var entity: Entity = body
-		entity._reduce_hp(-damage)
+		entity._take_damage(weapon)
+		damaged.emit(entity)
 
 
 func _on_duration_timeout() -> void:

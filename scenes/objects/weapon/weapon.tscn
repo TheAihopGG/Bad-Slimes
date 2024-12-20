@@ -6,7 +6,6 @@
 [node name="Weapon" groups=["weapon"] instance=ExtResource("1_s3ug0")]
 script = ExtResource("2_wxcsm")
 damage = 10
-stan_chance = 100.0
 cooldown = 1.0
 position_offset = Vector2(0, 0)
 

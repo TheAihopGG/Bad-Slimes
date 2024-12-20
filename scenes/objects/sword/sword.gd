@@ -10,6 +10,10 @@ func _attack(entity: Entity) -> void:
 		can_attack = false
 		cooldown_timer.start(cooldown)
 		sprite.play("attack")
+		
 		var damage_area = DAMAGE_AREA.instantiate()
+
 		entity.add_child(damage_area)
+
 		damage_area.look_at(mouse_pos)
+		damage_area.weapon = self
