@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://exchi7jclv70"]
+
+[ext_resource type="PackedScene" uid="uid://boivo16uuyl6f" path="res://scenes/objects/effect/effect.tscn" id="1_7obd6"]
+[ext_resource type="Script" path="res://scenes/objects/PoisonEffect/poison_effect.gd" id="2_wnniy"]
+
+[node name="PoisonEffect" instance=ExtResource("1_7obd6")]
+script = ExtResource("2_wnniy")
+duration = 10.0
+count = 20

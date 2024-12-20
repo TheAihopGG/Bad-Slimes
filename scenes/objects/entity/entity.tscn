@@ -1,9 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://u0twxm6e37ww"]
+[gd_scene load_steps=4 format=3 uid="uid://u0twxm6e37ww"]
 
 [ext_resource type="Script" path="res://scenes/objects/entity/entity.gd" id="1_xtoyv"]
+[ext_resource type="FontFile" uid="uid://ddjigxlfi4uxe" path="res://fonts/monogram.ttf" id="2_lwkwm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cvxj7"]
+font = ExtResource("2_lwkwm")
 
 [node name="Entity" type="CharacterBody2D"]
 script = ExtResource("1_xtoyv")
+
+[node name="HPLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -106.0
+offset_right = 20.0
+offset_bottom = -83.0
+label_settings = SubResource("LabelSettings_cvxj7")
+horizontal_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 

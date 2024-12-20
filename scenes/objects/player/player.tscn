@@ -1048,7 +1048,6 @@ dodge_roll_max_speed = 80
 dodge_roll_speed_acceleration = 20
 dodge_roll_cool_down = 2.0
 dodge_roll_duration = 0.5
-max_speed = 60
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 zoom = Vector2(7, 7)
@@ -1060,19 +1059,26 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickItemsArea" index="0"]
 shape = SubResource("CircleShape2D_unav6")
 
-[node name="AnimatedSprite2D" parent="." index="2"]
+[node name="HPLabel" parent="." index="2"]
+offset_left = -10.0
+offset_top = -20.0
+offset_right = 30.0
+offset_bottom = 3.0
+scale = Vector2(0.5, 0.5)
+
+[node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_dyem1")
 animation = &""
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="4"]
 shape = SubResource("RectangleShape2D_7jxmb")
 
-[node name="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" parent="." index="5"]
 libraries = {
 "": SubResource("AnimationLibrary_i0pms")
 }
 
-[node name="AnimationTree" parent="." index="5"]
+[node name="AnimationTree" parent="." index="6"]
 tree_root = SubResource("AnimationNodeStateMachine_x7jco")
 advance_expression_base_node = NodePath("")
 parameters/dodge_roll/blend_position = Vector2(0, 0)

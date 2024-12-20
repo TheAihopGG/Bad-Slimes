@@ -39,6 +39,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	_set_hp_label()
 	get_input()
 
 

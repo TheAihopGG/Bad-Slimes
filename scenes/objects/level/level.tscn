@@ -7,10 +7,6 @@
 script = ExtResource("1_bdhy2")
 
 [node name="Player" parent="." instance=ExtResource("2_2skuu")]
-dodge_roll_max_speed = 80
-dodge_roll_speed_acceleration = 20
-dodge_roll_cool_down = 2.0
-dodge_roll_duration = 0.5
 
 [node name="Layers" type="Node" parent="."]
 

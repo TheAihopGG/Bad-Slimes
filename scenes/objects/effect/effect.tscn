@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://boivo16uuyl6f"]
+
+[ext_resource type="Script" path="res://scenes/objects/effect/effect.gd" id="1_bhrxh"]
+
+[node name="Effect" type="Node"]
+script = ExtResource("1_bhrxh")
+
+[node name="Duration" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Rate" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Duration" to="." method="_on_duration_timeout"]
+[connection signal="timeout" from="Rate" to="." method="_on_rate_timeout"]
