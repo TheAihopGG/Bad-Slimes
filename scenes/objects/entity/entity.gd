@@ -2,8 +2,13 @@ extends CharacterBody2D
 class_name Entity
 
 # export vars
+# export speed parameters
+@export_subgroup("Speed")
 @export var max_speed:           int = 100
 @export var speed_acceleration:  int = 10
+
+# export health parameters
+@export_subgroup("HP")
 @export var max_hp:              int = 100
 @export var hp:                  int = 100
 

@@ -2,6 +2,8 @@ extends Entity
 class_name Player
 
 # export vars
+# export dodge roll parameters
+@export_subgroup("Dodge roll")
 @export var dodge_roll_max_speed:             int   = 80
 @export var dodge_roll_speed_acceleration:    int   = 20
 @export var dodge_roll_cool_down:             float = 2
