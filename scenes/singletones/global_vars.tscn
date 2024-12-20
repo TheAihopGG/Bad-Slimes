@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy44ad0loimig"]
+
+[ext_resource type="Script" path="res://scenes/singletones/global_vars.gd" id="1_s2uvb"]
+
+[node name="GlobalVars" type="Node"]
+script = ExtResource("1_s2uvb")
