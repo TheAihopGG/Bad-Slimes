@@ -9,7 +9,7 @@ font = ExtResource("2_lwkwm")
 [node name="Entity" type="CharacterBody2D"]
 script = ExtResource("1_xtoyv")
 
-[node name="HPLabel" type="Label" parent="."]
+[node name="HPLabel" type="Label" parent="." groups=["entity"]]
 offset_left = -20.0
 offset_top = -106.0
 offset_right = 20.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cag2gcx2y5piu"]
+[gd_scene load_steps=27 format=4 uid="uid://cag2gcx2y5piu"]
 
 [ext_resource type="PackedScene" uid="uid://ban7mdvu67bla" path="res://scenes/objects/level/level.tscn" id="1_t4xr4"]
 [ext_resource type="Texture2D" uid="uid://cuigapkn6mjjj" path="res://tilesets/ground/Dirt - simplified.png" id="2_e6jgb"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://0ka7a86drcrn" path="res://tilesets/props/Tree.png" id="10_i0uro"]
 [ext_resource type="Texture2D" uid="uid://comos6wrbya0k" path="res://tilesets/props/Water Plants.png" id="11_hh03r"]
 [ext_resource type="PackedScene" uid="uid://b1hswu6isgcbp" path="res://scenes/objects/note/note.tscn" id="12_ij56c"]
+[ext_resource type="PackedScene" uid="uid://202pswi301at" path="res://scenes/objects/sword/sword.tscn" id="13_dlof5"]
+[ext_resource type="PackedScene" uid="uid://daoapx6jtxwer" path="res://scenes/objects/enemy/test_enemy.tscn" id="13_l1dbo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_axfnt"]
 texture = ExtResource("2_e6jgb")
@@ -430,5 +432,10 @@ position = Vector2(7, 53)
 title = "ASDasd"
 text = "asdasd adsa d ad sad asdasdsad asd asd asd ad sds s"
 
+[node name="TestEnemy" parent="Enemies" index="0" instance=ExtResource("13_l1dbo")]
+
 [node name="StartPos" parent="." index="5"]
 position = Vector2(-90, -1)
+
+[node name="Sword" parent="." index="6" instance=ExtResource("13_dlof5")]
+position = Vector2(-147, 25)

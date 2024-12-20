@@ -24,9 +24,15 @@ class_name Entity
 
 # vars
 var move_direction: Vector2 = Vector2.ZERO
+var last_move_direction: Vector2 = Vector2.RIGHT
+var weapon: Weapon
 
 # define signals
 signal hp_reduced(new_hp: int, hp_count: int)
+
+
+func _ready() -> void:
+	add_to_group("entity")
 
 
 func _set_hp_label() -> void:

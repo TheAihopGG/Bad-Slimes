@@ -42,10 +42,6 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and can_pick_up:
 		_pick_up()
 	
-	if Input.is_action_just_pressed("interact"):
-		print(abs((position - get_global_mouse_position()).length()))
-		
-		
 	enter_state()
 
 

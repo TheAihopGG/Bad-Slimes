@@ -18,7 +18,8 @@ class_name Player
 enum states {
 	MOVE,
 	IDLE,
-	DODGE_ROLL
+	DODGE_ROLL,
+	ATTACK
 }
 var state
 
@@ -27,13 +28,14 @@ var movement_enabled: bool = true
 var attacking_enabled: bool = true
 var pick_up_enabled: bool = true
 var interaction_enabled: bool = true
-var last_move_direction: Vector2 = Vector2.RIGHT
 var playback: AnimationNodeStateMachinePlayback
 var can_dodge_roll: bool = true
 var nearby_items: Array[Item]
 
 
 func _ready() -> void:
+	add_to_group("entity")
+	add_to_group("player")
 	GlobalVars.player = self
 	playback = animation_tree["parameters/playback"]
 
@@ -56,19 +58,32 @@ func get_input() -> void:
 		# set state
 		state = get_current_state()
 	
+	if Input.is_action_just_pressed("weapon_1"):
+		if weapons.get_child_count() > 0:
+			weapon = weapons.get_children()[0]
+			weapon.visible = true
+			weapon.is_picked_up = true
+			print("Switched to weapon ", weapon.name)
+	
+	elif Input.is_action_just_pressed("weapon_2"):
+		if weapons.get_child_count() > 1:
+			weapon = weapons.get_children()[1]
+			weapon.visible = true
+			weapon.is_picked_up = true
+			print("Switched to weapon ", weapon.name)
+	
 	if move_direction:
 		last_move_direction = move_direction
 	
 	if Input.is_action_just_pressed("interact"):
-		for note in notes.get_children():
-			var anote: Note = note
-			print("Note title: ", anote.title)
-			print("Note text: ", anote.text)
-		print(nearby_items)
+		print(weapon)
 
 
 func get_current_state() -> int:
-	if Input.is_action_just_pressed("dodge_roll") and can_dodge_roll:
+	if Input.is_action_just_pressed("attack"):
+		return states.ATTACK
+
+	elif Input.is_action_just_pressed("dodge_roll") and can_dodge_roll:
 		return states.DODGE_ROLL
 	
 	elif move_direction:
@@ -110,6 +125,10 @@ func enter_state() -> void:
 			
 			else:
 				velocity = last_move_direction.normalized() * dodge_roll_max_speed
+		
+		states.ATTACK:
+			if weapon:
+				weapon._attack(self)
 
 
 func update_animation_parameters() -> void:

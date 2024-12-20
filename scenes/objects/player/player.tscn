@@ -1042,12 +1042,16 @@ states/idle/position = Vector2(335, 100)
 states/move/node = SubResource("AnimationNodeBlendSpace2D_fjpap")
 states/move/position = Vector2(476, 100)
 
-[node name="Player" instance=ExtResource("1_tmi20")]
+[node name="Player" groups=["player"] instance=ExtResource("1_tmi20")]
 script = ExtResource("2_auuq8")
-dodge_roll_max_speed = 80
-dodge_roll_speed_acceleration = 20
-dodge_roll_cool_down = 2.0
-dodge_roll_duration = 0.5
+dodge_roll_max_speed = null
+dodge_roll_speed_acceleration = null
+dodge_roll_cool_down = null
+dodge_roll_duration = null
+max_speed = null
+speed_acceleration = null
+max_hp = null
+hp = null
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 zoom = Vector2(7, 7)

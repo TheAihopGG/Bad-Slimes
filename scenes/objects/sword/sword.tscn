@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://202pswi301at"]
+
+[ext_resource type="PackedScene" uid="uid://b5d8cggwhibh4" path="res://scenes/objects/weapon/weapon.tscn" id="1_novii"]
+[ext_resource type="Script" path="res://scenes/objects/sword/sword.gd" id="2_m1o5w"]
+[ext_resource type="Texture2D" uid="uid://bm0gpqh6223td" path="res://scenes/objects/sword/sword2.png" id="3_8l3g6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy3qq"]
+size = Vector2(2, 18.5548)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fieka"]
+atlas = ExtResource("3_8l3g6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2u5e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fieka")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fieka")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Sword" groups=["item"] instance=ExtResource("1_novii")]
+z_index = 2
+position = Vector2(0, -3)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_m1o5w")
+cooldown = 1.0
+position_offset = Vector2(0, 0)
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -5.27739)
+shape = SubResource("RectangleShape2D_cy3qq")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, 2)
+sprite_frames = SubResource("SpriteFrames_g2u5e")
+animation = &"idle"
+offset = Vector2(0, -8)
