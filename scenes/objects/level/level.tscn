@@ -18,6 +18,8 @@ dodge_roll_duration = 0.5
 
 [node name="Items" type="Node" parent="."]
 
+[node name="Notes" type="Node" parent="Items"]
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="StartPos" type="Node2D" parent="."]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://hx5nn5jous5u"]
+[gd_scene load_steps=2 format=3 uid="uid://b8cw37m5gxqrw"]
 
 [ext_resource type="Script" path="res://scenes/objects/item/item.gd" id="1_skytx"]
 
-[node name="Item" type="Area2D"]
+[node name="StaticBody2D" type="StaticBody2D"]
 script = ExtResource("1_skytx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -10,6 +10,8 @@ script = ExtResource("1_skytx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../..")
 anim_player = NodePath("../AnimationPlayer")

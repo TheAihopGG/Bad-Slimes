@@ -12,6 +12,7 @@ class_name Player
 # timers nodes
 @onready var dodge_rolling_timer: Timer = $Timers/DodgeRoll
 @onready var dodge_roll_cool_down_timer: Timer = $Timers/DodgeRollCoolDown
+@onready var notes: Node = $Notes
 
 # states
 enum states {
@@ -24,10 +25,13 @@ var state
 # vars
 var movement_enabled: bool = true
 var attacking_enabled: bool = true
+var pick_up_enabled: bool = true
 var interaction_enabled: bool = true
 var last_move_direction: Vector2 = Vector2.RIGHT
 var playback: AnimationNodeStateMachinePlayback
 var can_dodge_roll: bool = true
+var nearby_items: Array[Item]
+
 
 func _ready() -> void:
 	GlobalVars.player = self
@@ -53,6 +57,13 @@ func get_input() -> void:
 	
 	if move_direction:
 		last_move_direction = move_direction
+	
+	if Input.is_action_just_pressed("interact"):
+		for note in notes.get_children():
+			var anote: Note = note
+			print("Note title: ", anote.title)
+			print("Note text: ", anote.text)
+		print(nearby_items)
 
 
 func get_current_state() -> int:
@@ -107,9 +118,26 @@ func update_animation_parameters() -> void:
 
 
 func _on_dodge_roll_timeout() -> void:
-
 	state = states.IDLE
 
 
 func _on_dodge_roll_cool_down_timeout() -> void:
 	can_dodge_roll = true
+
+
+func _on_pick_items_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("item"):
+		var item: Item = body
+		nearby_items.append(item)
+
+
+func _on_pick_items_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("item"):
+		var item: Item = body
+		var index: int = 0
+		for nearby_item in nearby_items:
+			if nearby_item.i_name == item.i_name:
+				nearby_item._unfocus()
+				nearby_items.remove_at(index)
+			
+			index += 1
