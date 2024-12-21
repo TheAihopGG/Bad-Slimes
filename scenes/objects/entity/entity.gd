@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Entity
 
+# constant
+const TIME_FOR_EVERY_WORD = 0.2
+
 # export vars
 # export speed parameters
 @export_subgroup("Speed")
@@ -33,12 +36,15 @@ class_name Entity
 @onready var weapons: Node = $Weapons
 @onready var hp_label: Label = $HPLabel
 @onready var stun_timer: Timer = $Timers/StunTimer
+@onready var dialog_text_timer: Timer = $Timers/DialogTextTimer
+@onready var dialog_label: Label = $DialogTextLabel
 
 # vars
 var move_direction: Vector2 = Vector2.ZERO
 var last_move_direction: Vector2 = Vector2.RIGHT
 var is_stunned: bool = false
 var weapon: Weapon
+var texts_to_say: Array[String]
 
 # define signals
 signal hp_reduced(new_hp: int, hp_count: int)
@@ -50,6 +56,14 @@ signal stun_ended()
 
 func _ready() -> void:
 	add_to_group("entity")
+
+
+func say(texts: Array[String]) -> void:
+	texts_to_say = texts
+	dialog_label.text = texts[0]
+	animation_player.play("show_dialog_text")
+	#dialog_text_timer.start(len(dialog_label.text) * TIME_FOR_EVERY_WORD)
+	print(dialog_label.text)
 
 
 func _set_hp_label() -> void:
@@ -89,3 +103,12 @@ func _replenish_hp(hp_count: int) -> void:
 func _on_stun_timer_timeout() -> void:
 	is_stunned = false
 	stun_ended.emit()
+
+
+func _on_dialog_text_timer_timeout() -> void:
+	texts_to_say.remove_at(0)
+	if len(texts_to_say) != 0:
+		dialog_label.text = texts_to_say[0]
+		animation_player.play("show_dialog_text")
+	else:
+		dialog_label.text = ""
